@@ -174,6 +174,22 @@
       },
 
       /**
+      Determines if the aggregation should use the google normalized distance significance score.
+
+      @member ejs.SignificantTermsAggregation
+      @param {Object} Parameters for the GND significance score.
+      @returns {Object} returns <code>this</code> so that calls can be chained.
+      */
+      gnd: function (parameters) {
+        if (parameters == null) {
+          parameters = {};
+        }
+
+        agg[name].significant_terms.gnd = parameters;
+        return this;
+      },
+
+      /**
       Determines how many terms the coordinating node will request from
       each shard.
 
