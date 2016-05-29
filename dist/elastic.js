@@ -1,6 +1,6 @@
-/*! elastic.js - v1.3.8 - 2015-11-02
+/*! elastic.js - v1.3.8 - 2016-05-29
  * https://github.com/fullscale/elastic.js
- * Copyright (c) 2015 FullScale Labs, LLC; Licensed MIT */
+ * Copyright (c) 2016 FullScale Labs, LLC; Licensed MIT */
 
 /**
  @namespace
@@ -5307,6 +5307,53 @@
         return this;
       },
 
+      /**
+      Determines if the aggregation should use the Chi Square significance score.
+
+      @member ejs.SignificantTermsAggregation
+      @param {Object} Parameters for the Chi Square significance score.
+      @returns {Object} returns <code>this</code> so that calls can be chained.
+      */
+      chi_square: function (parameters) {
+        if (parameters == null) {
+          parameters = {};
+        }
+
+        agg[name].significant_terms.chi_square = parameters;
+        return this;
+      },
+
+      /**
+      Determines if the aggregation should use the google normalized distance significance score.
+
+      @member ejs.SignificantTermsAggregation
+      @param {Object} Parameters for the GND significance score.
+      @returns {Object} returns <code>this</code> so that calls can be chained.
+      */
+      gnd: function (parameters) {
+        if (parameters == null) {
+          parameters = {};
+        }
+
+        agg[name].significant_terms.gnd = parameters;
+        return this;
+      },
+
+      /**
+      Determines if the aggregation should use the mutual information as significance score.
+
+      @member ejs.SignificantTermsAggregation
+      @param {Object} Parameters for the MI significance score.
+      @returns {Object} returns <code>this</code> so that calls can be chained.
+      */
+      mutual_information: function (parameters) {
+        if (parameters == null) {
+          parameters = {};
+        }
+
+        agg[name].significant_terms.mutual_information = parameters;
+        return this;
+      },
 
       /**
       Determines how many terms the coordinating node will request from
